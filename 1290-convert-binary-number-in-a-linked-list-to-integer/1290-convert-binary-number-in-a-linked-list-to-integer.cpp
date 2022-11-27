@@ -10,21 +10,16 @@
  */
 class Solution {
 public:
+    int ans=0;
     int getDecimalValue(ListNode* head) {
         ListNode* temp=head;
-        int count=0,sum=0;
-        while(temp!=NULL)
+        int ans=0;
+        while(temp)
         {
-            count++;
-            temp=temp->next;
+            ans=ans*2;
+            ans+=temp->val;
+                temp=temp->next;
         }
-        count=count-1;
-       while(head!=NULL)
-       {
-          sum+=head->val*pow(2,count);
-           count--;
-           head=head->next;
-       }
-        return sum;
+        return ans;
     }
 };
