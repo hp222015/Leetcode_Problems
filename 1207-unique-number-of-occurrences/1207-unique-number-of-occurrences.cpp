@@ -4,15 +4,14 @@ public:
         map<int,int>m1;
         for(auto i:arr)
             m1[i]++;
-        map<int,int>m2;
+        vector<int> nums;
+        vector<int>:: iterator it;
         for(auto i:m1)
         {
-            m2[i.second]++;
-        }
-        for(auto i:m2)
-        {
-            if(i.second>1)
-                return false;
+            it=find(nums.begin(),nums.end(),i.second);
+                if(it!=nums.end())
+                    return false;
+            nums.push_back(i.second);
         }
         return true;
     }
