@@ -19,41 +19,24 @@ public:
         
     }*/
     int minimumAverageDifference(vector<int>& nums) {
-        priority_queue<pair<long,long>>maxh1;
-        priority_queue<pair<long,long>>maxh2;
+        priority_queue<pair<long,long>>maxh;
         long sum1=0,sum=0,avg1=0,avg2=0;
         int b;
         for(auto i:nums)
             sum+=i;
-        //cout<<sum<<endl;
         for(int i=0;i<nums.size();i++)
         {
             sum1+=nums[i];
-           // cout<<sum1<<" ";
             avg1=sum1/(i+1);
             b=nums.size()-(i+1);
             if(b!=0)
             avg2=(sum-sum1)/b;
             else if(b==0)
-                avg2=0;
-            //cout<<avg2<<" ";
-            maxh1.push({abs(avg1-avg2),i});
+             avg2=0;
+            maxh.push({abs(avg1-avg2),i});
         }
-        while(maxh1.size()!=1)
-        {
-            //cout<<maxh1.top().first<<" ";
-            maxh1.pop();
-        }
-        int a=maxh1.top().first;
-        //cout<<a<<" "<<maxh1.top().second;
-        maxh2.swap(maxh1);
-        vector<int> v;
-         while(maxh2.size()>0)
-         {
-             if(maxh2.top().first==a)
-                 v.push_back(maxh2.top().second);
-             maxh2.pop();
-         }
-        return *min_element(v.begin(),v.end());
+        while(maxh.size()!=1)
+            maxh.pop();
+        return maxh.top().second;
     }
 };
