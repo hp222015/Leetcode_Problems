@@ -11,6 +11,8 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
+        if(head==NULL)
+            return NULL;
         ListNode* res1=new ListNode();
         ListNode* res2=new ListNode();
         ListNode* temp=head,* temp1=res1,* temp2=res2;
