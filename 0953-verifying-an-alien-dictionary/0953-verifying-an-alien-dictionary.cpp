@@ -1,26 +1,24 @@
 class Solution {
 public:
     bool isAlienSorted(vector<string>& words, string order) {
-      int *orderMap=new int[26];
+        map<char,int>m1;
         for(int i=0;i<order.size();i++)
-            orderMap[order[i]-'a']=i;
+          m1.insert({order[i],i});
         for(int i=0;i<words.size()-1;i++)
         {
             for(int j=0;j<words[i].length();j++)
             {
                 if(j>=words[i+1].length())
                     return false;
-                if(words[i][j] != words[i+1][j])
+                if(words[i][j]!=words[i+1][j])
                 {
-                    int currentWordChar =words[i][j]-'a';
-                    int nextWordChar =words[i+1][j]-'a';
-                    if(orderMap[currentWordChar]>orderMap[nextWordChar])
+                    if(m1[words[i][j]]>m1[words[i+1][j]])
                         return false;
                     else
                         break;
                 }
             }
-         }
-            return true;
         }
+       return true; 
+    }
 };
