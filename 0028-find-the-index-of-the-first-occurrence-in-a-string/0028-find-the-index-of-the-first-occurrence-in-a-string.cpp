@@ -17,10 +17,7 @@ public:
         for(int window=0;window<=size1-size2;window++)
         {
             string str1="";
-            for(int i=0;i<size2;i++)
-            {
-               str1+=haystack[window+i]; 
-            }
+            str1=haystack.substr(window,size2);
             if(findHash(str1)==s1)
             {
                 for(int i=0;i<size2;i++)
