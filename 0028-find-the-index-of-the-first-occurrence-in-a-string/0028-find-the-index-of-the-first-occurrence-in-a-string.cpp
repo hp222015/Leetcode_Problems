@@ -14,6 +14,8 @@ public:
         int size1=haystack.size();
         int size2=needle.size();
         int s1=findHash(needle);
+        if(size2>size1)
+            return -1;
         for(int window=0;window<=size1-size2;window++)
         {
             string str1="";
