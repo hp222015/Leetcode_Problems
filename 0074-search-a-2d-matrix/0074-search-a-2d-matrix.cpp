@@ -3,12 +3,18 @@ public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         for(int i=0;i<matrix.size();i++)
         {
-            for(int j=0;j<matrix[0].size();j++)
+            int low=0,upper=matrix[0].size()-1,mid;
+            while(low<=upper)
             {
-                if(matrix[i][j]==target)
+                mid=(upper+low)/2;
+                if(matrix[i][mid]==target)
                     return true;
+                else if(matrix[i][mid]<target)
+                    low=mid+1;
+                else if(matrix[i][mid]>target)
+                    upper=mid-1;
             }
         }
-        return false;
+       return false; 
     }
 };
