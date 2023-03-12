@@ -1,11 +1,13 @@
 class Solution {
 public:
-    long int check_time(int speed, vector<int>& piles)
+    long int check_time(int speed, vector<int>& piles,int h)
     {
         long int count=0;
         for(int i=0;i<piles.size();i++)
         {
-            count+=(piles[i]/speed)+(piles[i]%speed!=0);             
+            count+=(piles[i]/speed)+(piles[i]%speed!=0);
+            if(count>h)
+                return count;
         }
         return count;
     }
@@ -15,7 +17,7 @@ public:
         while(low<=high)
         {
             int mid=(low+high)/2;
-            if(check_time(mid,piles)<=h)
+            if(check_time(mid,piles,h)<=h)
             {
                 ans=mid;
                 high=mid-1;
