@@ -5,7 +5,7 @@ public:
         long int count=0;
         for(int i=0;i<piles.size();i++)
         {
-            count+=(piles[i]/speed)+(piles[i]%speed!=0);
+            count+=ceil(piles[i]*1.0/speed);
             if(count>h)
                 return count;
         }
