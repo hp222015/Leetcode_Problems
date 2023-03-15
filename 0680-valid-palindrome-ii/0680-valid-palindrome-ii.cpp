@@ -20,7 +20,10 @@ public:
             }
             else
             {
-                return (checkPalindrome(i+1,j,s) || checkPalindrome(i,j-1,s));
+                if(checkPalindrome(i+1,j,s)==true || checkPalindrome(i,j-1,s)==true)
+                    return true;
+                else
+                    return false;
             }
         }
         return true;
