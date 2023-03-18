@@ -6,7 +6,7 @@ public:
           m1[nums[i]]++;
         priority_queue<pair<int,int>>maxh;
         for(auto i:m1)
-            maxh.push(make_pair(i.second,i.first));
+            maxh.push({i.second,i.first});
         vector<int>ans;
         while(k--)
         {
