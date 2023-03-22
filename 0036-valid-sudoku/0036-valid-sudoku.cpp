@@ -1,7 +1,8 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-    std::unordered_set<char> rows[9];
+        
+std::unordered_set<char> rows[9];
     std::unordered_set<char> cols[9];
     std::unordered_set<char> boxes[9];
     
@@ -23,6 +24,5 @@ public:
     }
     
     return true;
-        
     }
 };
