@@ -1,11 +1,14 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        // to count no. of distinct elements
-       int count=unique(nums.begin(),nums.end())-nums.begin();
-        if(count<nums.size())
-            return true;
+        map<int,int>m1;
+        for(auto i:nums)
+            m1[i]++;
+        for(auto i:m1)
+        {
+            if(i.second>1)
+                return true;
+        }
         return false;
         
     }
