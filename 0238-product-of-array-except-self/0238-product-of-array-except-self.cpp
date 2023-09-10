@@ -1,21 +1,20 @@
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        int n=nums.size();
-        vector<int> ans(n,1);
-        // finding the product of all numbers to the left of i
-        for(int i=1;i<n;i++)
-        {
-            ans[i]=ans[i-1]*nums[i-1];
-        }
-        // finding the product of all numbers to the right of i
-        int rp=1;
-        for(int i=n-1;i>=0;i--)
-        {
-            ans[i]*=rp;
-            rp*=nums[i];
-        }
-       return ans; 
-        
+       int s=nums.size();
+       vector<int>prev(s);
+       vector<int>next(s);
+       vector<int>ans;
+       
+       prev[0]=1;
+       next[s-1]=1;
+       for(int i=1;i<s;i++)
+           prev[i]=prev[i-1]*nums[i-1];
+       for(int i=s-2;i>=0;i--)
+           next[i]=next[i+1]*nums[i+1];
+       for(int i=0;i<s;i++)
+           ans.push_back(prev[i]*next[i]);
+       return ans;
     }
 };
+   
