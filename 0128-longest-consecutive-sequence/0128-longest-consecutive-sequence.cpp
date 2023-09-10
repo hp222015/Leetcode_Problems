@@ -4,17 +4,18 @@ public:
         sort(nums.begin(),nums.end());
         if(nums.size()==0)
             return 0;
-        set<int> s;
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            if(nums[i+1]==nums[i])
+                nums.erase(find(nums.begin(),nums.end(),nums[i--]));
+        }
         for(auto i:nums)
-            s.insert(i);
-        vector<int> v;
-        for(auto i:s)
-            v.push_back(i);
+            cout<<i<<',';
         int count=1;
         vector<int> ans;
-        for(int i=0;i<v.size()-1;i++)
+        for(int i=0;i<nums.size()-1;i++)
         {
-            if(v[i+1]-v[i]==1)
+            if(nums[i+1]-nums[i]==1)
             {
                 count++;
             }
