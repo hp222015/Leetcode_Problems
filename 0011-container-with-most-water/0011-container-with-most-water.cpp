@@ -1,21 +1,22 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        // Approach : take two pointer first to left and the other to right and start finding area between the two.
-        int area=0;
-        int maxi=0;
-        int left=0,right=height.size()-1;
-        while(left<right)
+        int minh,prod;
+        int maxi=INT_MIN;
+        int i=0,j=height.size()-1;
+        while(i<=j)
         {
-            area=min(height[left],height[right])*(right-left);
-            cout<<area<<" ";
-            if(area>maxi)
-                maxi=area;
-            if(height[left]<=height[right])
-                left++;
-            else
-                right--;
+                prod=1;     
+                minh=min(height[i],height[j]);
+                prod=minh*(j-i);
+                if(prod>maxi)
+                    maxi=prod;
+                if(height[i]<height[j])
+                    i++;
+                else
+                    j--;
         }
         return maxi;
+        
     }
 };
