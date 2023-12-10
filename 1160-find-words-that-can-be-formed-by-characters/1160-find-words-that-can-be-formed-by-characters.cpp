@@ -1,7 +1,7 @@
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
-       map<char,int>m1,tmp;
+       unordered_map<char,int>m1,tmp;
        for(char i:chars)
          m1[i]++;
        int flag,sum=0;
