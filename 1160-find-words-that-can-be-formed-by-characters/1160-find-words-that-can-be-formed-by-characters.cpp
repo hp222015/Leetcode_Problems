@@ -7,18 +7,15 @@ public:
        int flag,sum=0;
        for(auto i:words)
        {
+           for(auto j:i)
+               tmp[j]++;
            flag=0;
-           tmp.insert(m1.begin(),m1.end());
            for(auto j:i)
            {
-               tmp[j]--;
-           }
-           for(auto k:tmp)
-           {
-               if(k.second<0)
+               if(m1[j]<tmp[j])
                {
                    flag=1;
-                   break;
+                   continue;
                }
            }
            if(flag==0)
