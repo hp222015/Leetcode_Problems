@@ -1,12 +1,13 @@
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
-       unordered_map<char,int>m1,tmp;
+       unordered_map<char,int>m1;
        for(char i:chars)
          m1[i]++;
        int flag,sum=0;
        for(auto i:words)
        {
+           unordered_map<char,int> tmp;
            for(auto j:i)
                tmp[j]++;
            flag=0;
@@ -15,7 +16,7 @@ public:
                if(m1[j]<tmp[j])
                {
                    flag=1;
-                   continue;
+                   break;
                }
            }
            if(flag==0)
